@@ -1,2 +1,7 @@
+.project
 .classpath
-bin
+.settings/
+
+bin/
+target/
+test-output/
