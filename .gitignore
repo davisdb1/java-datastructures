@@ -1,2 +1,9 @@
+.DS_Store
+
+.project
 .classpath
-bin
+.settings/
+
+bin/
+target/
+test-output/
