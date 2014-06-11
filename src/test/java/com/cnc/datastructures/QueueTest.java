@@ -12,33 +12,45 @@ public class QueueTest {
 	@Test
 	public void PopEmpty() {
 		Queue<Integer> stack = new Queue<Integer>();
-		Node<Integer> result = stack.pop();
+		Integer result = stack.pop();
 		assertEquals(null, result);
 		
 	}
 	
 	@Test
 	public void PushOne(){
-		Queue<Integer> stack = new Queue<Integer>();
-		Node<Integer> node = new Node<Integer>();
-		stack.push(node);
-		Node<Integer> result = stack.pop();
-		assertEquals(node, result);
+		Queue<Integer> queue = new Queue<Integer>();
+		queue.push(1);
+		Integer result = queue.pop();
+		assertEquals( (Integer)1, result);
 	}
 	
 	@Test
 	public void PushMultiple(){
-		Queue<Integer> stack = new Queue<Integer>();
-		Node<Integer> node1 = new Node<Integer>();
-		Node<Integer> node2 = new Node<Integer>();
-		stack.push(node1);
-		stack.push(node2);
+		Queue<Integer> queue = new Queue<Integer>();
+		queue.push(1);
+		queue.push(2);
 		
-		Node<Integer> result = stack.pop();
+		Integer result = queue.pop();
 		
-		assertEquals(node1, result);
-		result = stack.pop();
-		assertEquals(node2, result);
+		assertEquals((Integer)1, result);
+		result = queue.pop();
+		assertEquals((Integer)2, result);
 		
+	}
+	
+	@Test
+	public void PopMoreThanPush(){
+		Queue<Integer> queue = new Queue<Integer>();
+		queue.push(1);
+		queue.push(2);
+		
+		Integer result = queue.pop();
+		
+		assertEquals((Integer)1, result);
+		result = queue.pop();
+		assertEquals((Integer)2, result);
+		result = queue.pop();
+		assertEquals(null,result);
 	}
 }
