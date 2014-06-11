@@ -53,12 +53,11 @@ public class ParenSyntaxChecker {
 	   return false;
 	}
 	
-	// check what position the open and closed chars are on the 
-	// char array. the open position and closed position should be the
-	// same if they are properly nested symbols
+	// check what position the open char is on the OPEN_SYMBOL 
+	// char array. the closed char should match the same position in
+	// the CLOSED_SYMBOL array.
 	private static boolean openMatchesClosed(char open, char closed) {
 	   int openPos = 0;
-	   int closedPos = 0;
 	   for (char c : OPEN_SYMBOL) {
 	      if (c == open) {
 	         break;
@@ -66,12 +65,6 @@ public class ParenSyntaxChecker {
 	      openPos++;
 	   }
 	   
-	   for (char c : CLOSED_SYMBOL) {
-	      if (c == closed) {
-	         break;
-	      }
-	      closedPos++;
-	   }
-	   return openPos == closedPos;
+	   return closed == CLOSED_SYMBOL[openPos];
 	}
 }
