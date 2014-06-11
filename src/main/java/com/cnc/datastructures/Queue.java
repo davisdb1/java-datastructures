@@ -25,7 +25,7 @@ public class Queue<T> {
 			Node<T> result = tail;
 			tail = result.getPrev();
 			if(tail != null){
-				tail.setPrev(null);
+				tail.setNext(null);
 			}
 			return result.getData();
 		}
