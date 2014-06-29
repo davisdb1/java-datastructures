@@ -17,6 +17,15 @@ public class LinkedListTest {
       ll.add(4);
       assertEquals(ll.getAtIndex(2), (Integer)3);
    }
+   
+   @Test
+   public void removeEmpty() {
+      LinkedList<Integer> ll = new LinkedList<Integer>();
+      assertEquals(ll.remove(0), false);
+      assertEquals(ll.remove(1), false);
+      assertEquals(ll.remove(2), false);
+      assertEquals(ll.remove(3), false);
+   }
 
    @Test
    public void removeAtIndex() {
