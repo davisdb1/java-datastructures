@@ -11,8 +11,8 @@ public class BSTree<T extends Comparable<T>> {
 		if(root == null){
 			return 0;
 		}else{
-			int left = findDepthHelper(root.getPrev());
-			int right = findDepthHelper(root.getNext());
+			int left = findDepthHelper(root.getLeft());
+			int right = findDepthHelper(root.getRight());
 			return Math.max(left, right) + 1;
 		}
 	}
@@ -33,18 +33,18 @@ public class BSTree<T extends Comparable<T>> {
 			if(compared == 0 ){
 				return false;
 			}else if(compared < 0){
-				if(current.getPrev() == null){
-					current.setPrev(nodeToInsert);
+				if(current.getLeft() == null){
+					current.setLeft(nodeToInsert);
 					return true;
 				}else{
-					current = current.getPrev();
+					current = current.getLeft();
 				}
 			}else{
-				if(current.getNext() == null){
-					current.setNext(nodeToInsert);
+				if(current.getRight() == null){
+					current.setRight(nodeToInsert);
 					return true;
 				}else{
-					current = current.getNext();
+					current = current.getRight();
 				}
 			}
 		}
@@ -59,9 +59,9 @@ public class BSTree<T extends Comparable<T>> {
 			if(comparison == 0){
 				return current.getData();
 			}else if(comparison > 0){
-				current = current.getNext();
+				current = current.getRight();
 			}else{
-				current = current.getPrev();
+				current = current.getLeft();
 			}
 		}
 		return null;
