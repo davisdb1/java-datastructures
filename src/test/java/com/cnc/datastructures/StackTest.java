@@ -35,7 +35,26 @@ public class StackTest {
 		assertEquals(node2, result);
 		result = stack.pop();
 		assertEquals(node1, result);
+	}
+	
+	@Test
+	public void PopMoreThanPush(){
+		Stack<Integer> stack = new Stack<Integer>();
+		Integer node1 = 1;
+		Integer node2 = 2;
+		stack.push(node1);
+		stack.push(node2);
 		
+		Integer result = stack.pop();
+		
+		assertEquals(node2, result);
+		result = stack.pop();
+		assertEquals(node1, result);
+		
+		result = stack.pop();
+		assertEquals(null, result);
+		result = stack.pop();
+		assertEquals(null, result);
 	}
 
 }
