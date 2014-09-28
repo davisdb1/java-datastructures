@@ -4,12 +4,6 @@ import com.cnc.datastructures.Node;
 
 public class BSTreeToList {
 
-   //         parentNode 
-   //        /
-   //     currNode
-   //      /   \
-   //    null  null
-
    static class TwoNodes <T extends Comparable<T>> { 
       Node<T> smallest;
       Node<T> greatest;
