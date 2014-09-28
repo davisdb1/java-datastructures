@@ -65,6 +65,9 @@ public class BSTree<T extends Comparable<T>> {
 			}
 		}
 		return null;
-		
 	}
+   public Node<T> getRoot() {
+      return root;
+   }
+	
 }
