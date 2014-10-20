@@ -12,6 +12,7 @@ import com.cnc.datastructures.Stack;
  */
 public class ParenSyntaxChecker {
    
+  //TODO: convert to hashTable for efficieny
    public final static char[] OPEN_SYMBOL   = {'(', '{', '[' };
    public final static char[] CLOSED_SYMBOL = {')', '}', ']' }; 
    
