@@ -4,26 +4,35 @@ import com.cnc.datastructures.Node;
 
 public class BSTreeToList {
  
-  //TODO: Try implementing this
+ 
   
-  //Node head;
-  //Node tail;
-  //
-  //toLL(Node n) {
-  //    if(n == null) return;
-  //    toLL(n.left);
-  //if(head == null){
-  //    head = n;
-  //    tail = n;
-  //
-  //}else{
-  //        tail.right=n;
-  //    tail.left = tail;
-  //        tail = n;
-  //}
-  //toLL(n.right)
-  //    return;
-  //}
+  @SuppressWarnings("unused")
+  private static <T extends Comparable<T>> TwoNodes<T>  changeToListHelper(){
+    //TODO: Try implementing this
+    
+    //Node head;
+    //Node tail;
+    //
+    //toLL(Node n) {
+    //    if(n == null) return;
+    //    toLL(n.left);
+    //if(head == null){
+    //    head = n;
+    //    tail = n;
+    //
+    //}else{
+    //        tail.right=n;
+    //    tail.left = tail;
+    //        tail = n;
+    //}
+    //toLL(n.right)
+    //    return;
+    //}
+    
+    throw new UnsupportedOperationException();
+    
+    
+  }
 
    static class TwoNodes <T extends Comparable<T>> { 
       Node<T> smallest;
