@@ -6,8 +6,7 @@ public class MaxDepthOfTree {
 
 	
 	
-	public static int findMaxDepth(@SuppressWarnings("rawtypes") Node node){
-		
+	public static int findMaxDepth(@SuppressWarnings("rawtypes") Node node){		
 		if(node == null){
 			return 0;
 		}else{
@@ -19,7 +18,6 @@ public class MaxDepthOfTree {
 			}else{
 				return right + 1;
 			}
-			
 		}
 		
 	}
