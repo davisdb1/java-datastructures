@@ -6,6 +6,15 @@ import java.util.List;
 
 /*
  * given a string, find all the permutations of the string
+ * Example:
+ * 
+ * ABC
+ * ACB
+ * BAC
+ * BCA
+ * CAB
+ * CBA
+ * 
  * O(N!) 
  */
 public class StringPermutations {

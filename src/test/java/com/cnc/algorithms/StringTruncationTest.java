@@ -12,6 +12,14 @@ public class StringTruncationTest {
     assertEquals("", StringTruncation.getGoogleSeachTitle("", 100));
   }
   
+  
+  @Test
+  public void TruncateInString() {
+    assertEquals("abs abc", StringTruncation.getGoogleSeachTitle("abs abc abc", 8));
+    assertEquals("abs abc", StringTruncation.getGoogleSeachTitle("abs abc abc", 7));
+    
+  }
+  
 
   @Test
   public void NullGoogleResult() {

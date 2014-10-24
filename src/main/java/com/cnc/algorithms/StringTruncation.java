@@ -23,7 +23,7 @@ public class StringTruncation {
         int indexToConcat = 0;
        
         
-        for(int i= length - 1; i >= 0; i-- ) {
+        for(int i= length; i >= 0; i-- ) {
             if(titleCharArray[i] == ' ') {
               indexToConcat = i;
               break;
