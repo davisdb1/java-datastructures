@@ -6,6 +6,13 @@ import com.cnc.datastructures.Node;
  * Given a stream on integers, implement a class that can
  * find the median number in the stream
  * 
+ * 
+ * TODO: currently this uses a linked list to store the numbers,
+ * This is not very efficient due to the insert cost and the lookup cost
+ * The correct way to do this is to create a min heap and a max heap. Keep the
+ * heaps balanced with the same number of nodes in each heap. Then the top nodes
+ * in each heap is the median. Cool eh?
+ * 
  */
 public class MedianFinder {
 	private Node<Integer> root;
