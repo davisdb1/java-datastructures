@@ -1,6 +1,7 @@
 package com.cnc.algorithms;
 
-import com.cnc.datastructures.Stack;
+
+import java.util.*;
 
 /*
  * Proper symbol nesting problem
@@ -11,61 +12,46 @@ import com.cnc.datastructures.Stack;
  * 
  */
 public class ParenSyntaxChecker {
-   
-  //TODO: convert to hashTable for efficieny
-   public final static char[] OPEN_SYMBOL   = {'(', '{', '[' };
-   public final static char[] CLOSED_SYMBOL = {')', '}', ']' }; 
-   
+
+	private static Set<Character> opening;
+	private static Set<Character> closing;
+	private static HashMap<Character,Character> matching;
+
+	static {
+		opening = new HashSet<Character>();
+		closing = new HashSet<Character>();
+		matching = new HashMap<Character, Character>();
+		opening.add('(');
+		opening.add('{');
+		opening.add('[');
+
+		closing.add(')');
+		closing.add('}');
+		closing.add(']');
+
+		matching.put('(', ')');
+		matching.put('{', '}');
+		matching.put('[', ']');
+	}
+
 	public static boolean isCorrectSyntax(String input){
+		if(input == null || input.length() == 0){
+			return true;
+		}
 		char[] inputAsArray = input.toCharArray();
 		Stack<Character> stack = new Stack<Character>();
-		
+
 		for (char c : inputAsArray) {
-		   if (isOpen( c )) {
-		      stack.push( c );
-		   }
-		   else if (isClosed( c )) {
-		      char open = stack.pop();
-		      char closed = c;
-		      
-		      if (!openMatchesClosed(open, closed)) {
-		         return false;
-		      }
-		   }
+			if (opening.contains( c )) {
+				stack.push( c );
+			}
+			else if (closing.contains( c )) {
+				if(stack.empty() || !matching.get(stack.pop()).equals(c)){
+					return false;
+				}
+			}
 		}
-		return stack.getLength() == 0;    // ensure nothing is left on the stack
+		return stack.empty();    // ensure nothing is left on the stack
 	}
-	
-	private static boolean isOpen(char c) {
-	   for (char open : OPEN_SYMBOL) {
-	      if (c == open) {
-	         return true;
-	      }
-	   }
-	   return false;
-	}
-	
-	private static boolean isClosed(char c) {
-	   for (char closed : CLOSED_SYMBOL) {
-	      if (c == closed) {
-	         return true;
-	      }
-	   }
-	   return false;
-	}
-	
-	// check what position the open char is on the OPEN_SYMBOL 
-	// char array. the closed char should match the same position in
-	// the CLOSED_SYMBOL array.
-	private static boolean openMatchesClosed(char open, char closed) {
-	   int openPos = 0;
-	   for (char c : OPEN_SYMBOL) {
-	      if (c == open) {
-	         break;
-	      }
-	      openPos++;
-	   }
-	   
-	   return closed == CLOSED_SYMBOL[openPos];
-	}
+
 }

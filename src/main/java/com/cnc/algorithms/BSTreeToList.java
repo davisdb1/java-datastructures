@@ -56,12 +56,12 @@ public class BSTreeToList {
       }
    }
    public <T extends Comparable<T>> Node<T> changeToList(Node<T> node) {
+	   if(node == null) {
+		   return null;
+	   }
       return changeToListHelper(node).getSmallest();
    }
    private <T extends Comparable<T>> TwoNodes<T> changeToListHelper(Node<T> node) {
-      if(node == null){
-         return null;
-      }
 
       TwoNodes<T> left = null, right = null, result = new TwoNodes<T>();
       if (node.getLeft() != null) {

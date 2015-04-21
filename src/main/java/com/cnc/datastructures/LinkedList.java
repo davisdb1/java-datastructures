@@ -81,4 +81,18 @@ public class LinkedList<T> {
 			}
 		}
 	}
+	
+	/**
+	 * Removes elements immediatly adjacent to parameter value.
+	 * 
+	 * Example list contains
+	 * 1 2 3 4 5 6 7
+	 * 
+	 * when removeNeighbors(4) is called, result list should look like
+	 * 1 2 4 6 7
+	 * @param value The element whose neighbors to remove
+	 */
+	public void removeNeighbors(T value) {
+		
+	}
 }
