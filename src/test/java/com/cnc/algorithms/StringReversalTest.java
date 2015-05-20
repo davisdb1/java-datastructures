@@ -16,4 +16,11 @@ public class StringReversalTest {
       assertEquals(expected, result);
     
   }
+    
+    
+    @Test
+    public void reverseStringOdd(){
+        assertEquals("EDCBA", StringReversal.reverse("ABCDE"));
+    }
+    
 }

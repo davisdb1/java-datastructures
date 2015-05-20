@@ -3,7 +3,7 @@ package com.cnc.algorithms;
 public class StringReversal {
 
   public static String reverse(String string) {
-    if(string.length() < 2) {
+    if(string == null || string.length() < 2) {
       return string;
     }
     
@@ -15,8 +15,6 @@ public class StringReversal {
       charArray[last - i] = t;
     }
     return new String(charArray);
-    
   }
-    
-    
+  
 }
