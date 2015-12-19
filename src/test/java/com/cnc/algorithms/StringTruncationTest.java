@@ -2,6 +2,7 @@ package com.cnc.algorithms;
 
 import static org.junit.Assert.*;
 
+import com.cnc.algorithms.strings.StringTruncation;
 import org.junit.Test;
 
 public class StringTruncationTest {

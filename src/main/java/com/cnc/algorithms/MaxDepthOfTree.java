@@ -3,8 +3,6 @@ package com.cnc.algorithms;
 import com.cnc.datastructures.Node;
 
 public class MaxDepthOfTree {
-
-	
 	
 	public static int findMaxDepth(@SuppressWarnings("rawtypes") Node node){		
 		if(node == null){
@@ -19,7 +17,6 @@ public class MaxDepthOfTree {
 				return right + 1;
 			}
 		}
-		
 	}
 	
 }

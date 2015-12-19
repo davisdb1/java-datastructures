@@ -1,4 +1,4 @@
-package com.cnc.algorithms;
+package com.cnc.algorithms.dynamicprogramming;
 
 import java.util.LinkedList;
 

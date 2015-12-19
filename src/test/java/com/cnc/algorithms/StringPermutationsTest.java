@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.cnc.algorithms.StringPermutations;
+import com.cnc.algorithms.strings.StringPermutations;
 
 public class StringPermutationsTest {
 

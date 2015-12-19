@@ -1,11 +1,30 @@
 package com.cnc.algorithms;
 
-import com.cnc.datastructures.Node;
 
 /*
  * Given a stream on integers, implement a class that can
  * find the median number in the stream
  * 
+ * 
+ * Step 1: Add next item to one of the heaps
+ *
+ *  if next item is smaller than maxHeap root add it to maxHeap,
+ *  else add it to minHeap
+ *
+ * Step 2: Balance the heaps (after this step heaps will be either balanced or
+ *  one of them will contain 1 more item)
+ *
+ *  if number of elements in one of the heaps is greater than the other by
+ *  more than 1, remove the root element from the one containing more elements and
+ *  add to the other one
+ * 
+ * Now when gettint the median number
+ * 
+ * 
+ *   If the heaps contain equal elements;
+ *     median = (root of maxHeap + root of minHeap)/2
+ *  Else
+ *    median = root of the heap with more elements
  * 
  * TODO: currently this uses a linked list to store the numbers,
  * This is not very efficient due to the insert cost and the lookup cost
@@ -15,58 +34,5 @@ import com.cnc.datastructures.Node;
  * 
  */
 public class MedianFinder {
-	private Node<Integer> root;
-	private int numberOfInserts = 0;
-	
-	public void addNumber(int value){
-		Node<Integer> node = new Node<Integer>();
-		node.setData(value);
-		numberOfInserts++;
-		if(root == null) {
-		  root = node;
-		  return;
-		}
-		
-		Node<Integer> current = root;
-		Node<Integer> prev = null;
-	
-		while(current != null && current.getData() < value){
-			prev = current;
-			current = current.getNext();
-		}
-		
-		//insert at the beginnning
-		if(prev == null) {
-		  node.setNext(current);
-		  root = node;
-		}else {
-		  //insert at middle/end
-		  node.setNext(current);
-		  prev.setNext( node );
-		}
-		
-	}
-
-	public int getMedian(){
-		Node<Integer> current = root;
-		Node<Integer> prev = root;
-		
-		for(int i = 1; i  <= numberOfInserts / 2 ; i++){
-		    prev = current;
-			current = current.getNext();
-		}
-		if(current != null) {
-    		if(numberOfInserts % 2 == 1) {
-    		  return current.getData();
-    		}else {
-    		  return (prev.getData() + current.getData()) / 2;
-    		}
-		}
-		else
-		{
-          return -1;
-		}
-		
-		
-	}
+    
 }

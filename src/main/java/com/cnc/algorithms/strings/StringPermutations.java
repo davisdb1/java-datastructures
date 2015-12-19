@@ -1,4 +1,4 @@
-package com.cnc.algorithms;
+package com.cnc.algorithms.strings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +42,7 @@ public class StringPermutations {
 			
 		}
 		return result;
-		
-		
 	}
-	
-	
 	
 	/**
 	 * This is another way to do it that prints the strings instead of storing them
