@@ -1,4 +1,8 @@
 .DS_Store
+.gradle/
+build/
+java-datastructures.ipr
+java-datastructures.iws
 
 .idea
 .project
