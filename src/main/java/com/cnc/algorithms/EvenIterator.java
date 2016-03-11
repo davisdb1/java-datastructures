@@ -3,7 +3,7 @@ package com.cnc.algorithms;
 import java.util.Iterator;
 
 /**
- * Write an Iterator that only returns even Integers
+ * Write an Iterator that only returns even Numbers
  *
  * Look for:
  * -use of generics
@@ -43,8 +43,9 @@ public class EvenIterator <T extends Number> implements Iterator<T> {
         }
         return result;
     }
+
     @Override
-    public void remove(){
-      
+    public void remove() {
+
     }
 }

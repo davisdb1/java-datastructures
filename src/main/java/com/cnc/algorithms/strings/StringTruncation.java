@@ -7,7 +7,9 @@ public class StringTruncation {
      * When you search for a web site in google, each page title is
      * restricted by length. At the same time, google is careful not
      * cut off half of a word for a search result. Implement a search
-     * result formatter.
+     * result formatter that takes in an un-formatted string scraped from
+     * a web site and, given a desired length, return a formatted title.
+     * 
      * <p/>
      * <p/>
      * important tests to think about
