@@ -16,6 +16,44 @@ public class DoublyLinkedList<T> {
       }
       tail = node;
    }
+
+   public void swap(int leftIndex, int rightIndex) {
+      Node<T> left = this.getNodeAtIndex(leftIndex);
+      Node<T> right = this.getNodeAtIndex(rightIndex);
+
+      Node<T> rightPrev = left.getPrev();
+      Node<T> rightNext = left.getNext();
+      Node<T> leftPrev = right.getPrev();
+      Node<T> leftNext = right.getNext();
+
+      if(left.getNext() == right) { //adjacent
+         rightNext = left;
+         leftPrev = right;
+      }
+
+      setPointers(rightPrev, right, rightNext);
+      setPointers(leftPrev, left, leftNext);
+
+      if(head == left) {
+         head = right;
+      }
+
+      if(tail == right) {
+         tail = left;
+      }
+
+   }
+
+   private void setPointers(Node<T> prev, Node<T> current, Node<T> next) {
+      current.setPrev(prev);
+      current.setNext(next);
+      if(prev != null){
+         prev.setNext(current);
+      }
+      if(next != null) {
+         next.setPrev(current);
+      }
+   }
    
    public boolean remove(int index) {
       // no nodes
@@ -56,13 +94,21 @@ public class DoublyLinkedList<T> {
    }
    
    public T getAtIndex(int index) {
+      Node<T> curr = this.getNodeAtIndex(index);
+      if(curr != null) {
+         return curr.getData();
+      }
+      return null;
+   }
+
+   private Node<T> getNodeAtIndex(int index) {
       Node<T> curr = head;
       int currIndex = 0;
       while (curr != null) {
          if(currIndex == index) {
-            return curr.getData();
+            return curr;
          }
-         else { 
+         else {
             curr = curr.getNext();
             currIndex++;
          }
