@@ -3,19 +3,28 @@ package com.cnc.datastructures;
 import com.cnc.datastructures.Node;
 
 public class Queue<T> {
+
+	// pull on the tail
 	private Node<T> tail;
+
+	// push on the head
 	private Node<T> head;
+
+	private int size = 0;
 	
 	public void push(T data){
+
 		Node<T> newNode = new Node<T>();
 		newNode.setData(data);
-		if(head == null){
+		if(size == 0){
 			head = tail = newNode;
 		}else{
 			head.setPrev(newNode);
 			newNode.setNext(head);
 			head = newNode;
 		}
+
+		size++;
 	}
 	
 	public T pop(){
@@ -27,8 +36,16 @@ public class Queue<T> {
 			if(tail != null){
 				tail.setNext(null);
 			}
+			else {
+				head = null;
+			}
+			size--;
 			return result.getData();
 		}
+	}
+
+	public int size() {
+		return size;
 	}
 
 }

@@ -69,5 +69,56 @@ public class BSTree<T extends Comparable<T>> {
    public Node<T> getRoot() {
       return root;
    }
-	
+
+   public void prettyPrint() {
+		int depth = this.findDepth();
+
+	   Queue<Node<T>> queue = new Queue<>();
+	   if(this.getRoot() != null) {
+		   queue.push(this.getRoot());
+	   }
+
+
+
+	   StringBuilder currentLine = new StringBuilder();
+	   int nodesOnCurrentLine = 0;
+	   int currentDepth = 0;
+	   Node<T> blankSpaceNode = new Node<T>();
+
+	   while(queue.size() > 0) {
+		   Node<T> current = queue.pop();
+		   if(current.getLeft() != null) {
+			   queue.push(current.getLeft());
+		   }
+		   else if(currentDepth + 1 < depth) {
+		   		queue.push(blankSpaceNode);
+		   }
+		   if(current.getRight() != null) {
+			   queue.push(current.getRight());
+		   }
+		   else if(currentDepth + 1 < depth) {
+			   queue.push(blankSpaceNode);
+		   }
+
+		   currentLine.append(leftpad(current.getData(), (depth - currentDepth) * 10));
+		   nodesOnCurrentLine++;
+
+
+		   if(Math.pow(2, currentDepth) <= nodesOnCurrentLine) {
+		   		currentDepth++;
+		   		nodesOnCurrentLine = 0;
+		   		System.out.println(currentLine.toString());
+		   		currentLine = new StringBuilder();
+		   }
+	   }
+
+	   if(currentLine.length() > 0) {
+		   System.out.println(currentLine.toString());
+	   }
+   }
+
+	private String leftpad(T text, int length) {
+		return String.format("%" + length + "." + length + "s", text);
+	}
+
 }
