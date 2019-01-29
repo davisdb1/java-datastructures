@@ -35,6 +35,10 @@ public class MaxSumArrayTest {
         run(new int[]{1, 2, -30, 4, 5, 5, 32, 1, 2, 3, 4, 5, 6, 7, 4, 3, 2}, 57);
     }
 
+    @Test
+    public void testOneValueLargerThanAnySum() {
+        run(new int[]{-1, -2, -3, -4, 5000000, -6, -7, -8, -9}, 5000000);
+    }
 
     private void run(int[] array, int expectedMax) {
         System.out.println("Testing array " + Arrays.toString(array));

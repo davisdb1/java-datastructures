@@ -10,6 +10,7 @@ public class MaxSumArray {
      *
      * Recursive approach
      *
+     * Runs the same calculations over and over again
      */
     static int maxSubsetSumRecursive(int[] arr) {
         return maxSubsetSumRecursiveHelper(0, arr.length - 1, arr);
@@ -27,46 +28,9 @@ public class MaxSumArray {
         int option1 = arr[start] + maxSubsetSumRecursiveHelper(start + 2, end, arr);
         //option 2, ignore your own value, keep going
         int option2 = maxSubsetSumRecursiveHelper(start + 1, end, arr);
-        return Math.max(option1, option2);
-    }
-
-    /**
-     * Memoize Approach
-     *
-     * Stores past searches so that we don't have to run the same search over and over again
-     */
-    static int maxSubsetSumMemoization(int[] arr) {
-
-        //matrix storing previous searches
-        //use the index memo[start][end] to store the results of a helper call with the corresponding arguments
-        Integer[][] memo = new Integer[arr.length][];
-        for(int i = 0; i < memo.length; i++)
-            memo[i] = new Integer[arr.length];
-
-        return maxSubsetSumMemoizationHelper(0, arr.length - 1, arr, memo);
-    }
-
-    private static int maxSubsetSumMemoizationHelper(int start, int end, int[] arr, Integer[][] memo) {
-
-        //already searched it, just return the pre-computed result
-        if(memo[start][end] != null) {
-            return memo[start][end];
-        }
-
-        if(start == end) {
-            return arr[start];
-        }
-        //Big lesson learned, 2 base cases
-        //when the array is only 2 in length, return one or the other
-        if(end - start == 1) {
-            return Math.max(arr[start], arr[end]);
-        }
-
-        //option 1, choose yourself, and skip
-        int option1 = arr[start] + maxSubsetSumMemoizationHelper(start + 2, end, arr, memo);
-        //option 2, ignore your own value, keep going
-        int option2 = maxSubsetSumMemoizationHelper(start + 1, end, arr, memo);
-        return memo[start][end] = Math.max(option1, option2);
+        //option 3, just this number might be larger than any sum
+        int option3 = arr[start];
+        return Math.max(Math.max(option1, option2), option3);
     }
 
 
@@ -79,37 +43,28 @@ public class MaxSumArray {
      * In the recursive approach we are starting at the beginning of the array and making it smaller for each
      * call in the call stack.
      *
-     * Now, lets start at the base case and work our way up
+     * Now, lets start at the smallest array length and work our way up
      *
      */
     static int maxSubsetSumBottomUp(int[] arr) {
 
         //matrix storing previous searches
-        //use the index memo[start][end] to store the results of a helper call with the corresponding arguments
-        Integer[][] memo = new Integer[arr.length][];
-        for(int i = 0; i < memo.length; i++)
-            memo[i] = new Integer[arr.length];
-
-        for(int end = arr.length - 1; end >= 0; end--) {
-            for (int start = end; start >= 0; start--) {
-                if(start == end) {
-                    memo[start][end] = arr[start];
-                }
-                //Big lesson learned, 2 base cases
-                //when the array is only 2 in length, return one or the other
-                else if(end - start == 1) {
-                    memo[start][end] = Math.max(arr[start], arr[end]);
-                }
-                else {
-                    //option 1, choose yourself, and skip
-                    int option1 = arr[start] + memo[start + 2][end];
-                    //option 2, ignore your own value, keep going
-                    int option2 = memo[start + 1][end];
-                    memo[start][end] = Math.max(option1, option2);
-                }
-            }
+        //use the index memo[start] to store the results of a previous run
+        Integer[] memo = new Integer[arr.length];
+        memo[0] = arr[0];
+        //Trick here. When the array is only of length 2, the max is either of the values
+        // because they can never be added
+        memo[1] = Math.max(arr[1], memo[0]);
+        for(int start = 2; start < arr.length; start++) {
+            //option 1, choose yourself, and skip
+            int option1 = arr[start] + memo[start - 2];
+            //option 2, ignore your own value, use previus
+            int option2 = memo[start - 1];
+            //option 3, just this number might be larger than any sum
+            int option3 = arr[start];
+            memo[start] = Math.max(Math.max(option1, option2), option3);
         }
-        return memo[0][arr.length - 1];
+        return memo[arr.length - 1];
     }
 
 }
