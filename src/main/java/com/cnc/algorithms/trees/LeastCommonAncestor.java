@@ -7,11 +7,34 @@ public class LeastCommonAncestor {
 
 
     /**
-     * You are given pointer to the root of the binary search tree and two values.
+     * You are given pointer to the root of the binary search tree. You are also given two values.
      *
      * Return the least common ancestor of the two values in the tree.
      *
      * Assumptions: val 1 != val 2
+     *
+     * Examples
+     *
+     *               5
+     *             /  \
+     *            3   7
+     *
+     *  Input : 3, 7
+     *  Result : 5
+     *
+     *
+     *              10
+     *            /    \
+     *           5     15
+     *         /  \   /  \
+     *       3    6  11  17
+     *
+     *  Input: 5, 6
+     *  Result: 5
+     *
+     *  Input 11, 6
+     *  Result: 10
+     *
      */
     public <T extends Comparable> Node<T> findLeastCommonAncestor(Node<T> root, T value1, T value2) {
       if(root == null) {
