@@ -9,7 +9,7 @@ public class StringTruncation {
      * cut off half of a word for a search result. Implement a search
      * result formatter that takes in an un-formatted string scraped from
      * a web site and, given a desired length, return a formatted title.
-     * 
+     * <p>
      * <p/>
      * <p/>
      * important tests to think about
@@ -23,9 +23,13 @@ public class StringTruncation {
      * @return the truncated title
      */
     public static String getGoogleSeachTitle(String title, int length) {
+        if (length <= 0) {
+            throw new IllegalArgumentException("Length must be positive");
+        }
         if (title == null || title.length() <= length) {
             return title;
-        } else {
+        }
+        else {
             char[] titleCharArray = title.toCharArray();
             int indexToConcat = length;
             for (int i = length; i >= 0; i--) {

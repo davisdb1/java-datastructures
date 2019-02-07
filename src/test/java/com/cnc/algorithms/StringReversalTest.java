@@ -1,9 +1,9 @@
 package com.cnc.algorithms;
 
-import static org.junit.Assert.*;
-
 import com.cnc.algorithms.strings.StringReversal;
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class StringReversalTest {
 
@@ -19,7 +19,7 @@ public class StringReversalTest {
     }
 
     @Test
-    public void reverseStringOdd(){
+    public void reverseStringOdd() {
         assertEquals("EDCBA", StringReversal.reverse("ABCDE"));
     }
 

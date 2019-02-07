@@ -6,9 +6,9 @@ import org.junit.Test;
 public class NumberOfCharactersInStringTest {
 
     private NumberOfCharactersInString numberOfCharactersInString = new NumberOfCharactersInString();
-    
+
     @Test
-    public void testNumberOfCharactersHappy(){
+    public void testNumberOfCharactersHappy() {
         numberOfCharactersInString.printCharactersInString("FOO");
         numberOfCharactersInString.printCharactersInString("");
         numberOfCharactersInString.printCharactersInString(null);

@@ -47,7 +47,9 @@ public class MaxSumArray {
      *
      */
     static int maxSubsetSumBottomUp(int[] arr) {
-
+        if(arr.length == 1) {
+            return arr[0];
+        }
         //matrix storing previous searches
         //use the index memo[start] to store the results of a previous run
         Integer[] memo = new Integer[arr.length];

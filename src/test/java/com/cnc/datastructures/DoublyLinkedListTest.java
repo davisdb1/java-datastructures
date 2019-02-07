@@ -1,8 +1,8 @@
 package com.cnc.datastructures;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class DoublyLinkedListTest {
 
@@ -108,4 +108,5 @@ public class DoublyLinkedListTest {
       assertEquals(null, dll.getAtIndex(-1));
       assertEquals(null, dll.getAtIndex(5));
    }
+
 }

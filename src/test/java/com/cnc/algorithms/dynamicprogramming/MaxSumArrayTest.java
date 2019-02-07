@@ -48,12 +48,6 @@ public class MaxSumArrayTest {
         assertEquals(expectedMax, recursiveMax);
 
         startTime = System.nanoTime();
-        int memoizationMax = MaxSumArray.maxSubsetSumMemoization(array);
-        System.out.println("Time for memoize " + (System.nanoTime() - startTime) );
-
-        assertEquals(expectedMax, memoizationMax);
-
-        startTime = System.nanoTime();
         int bottomUpMax = MaxSumArray.maxSubsetSumBottomUp(array);
         System.out.println("Time for bottom up " + (System.nanoTime() - startTime) );
 

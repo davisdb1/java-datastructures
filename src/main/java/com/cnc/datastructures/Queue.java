@@ -1,17 +1,15 @@
 package com.cnc.datastructures;
 
-import com.cnc.datastructures.Node;
-
 public class Queue<T> {
 
 	// pull on the tail
-	private Node<T> tail;
+	private Node tail;
 
 	// push on the head
-	private Node<T> head;
+	private Node head;
 
 	private int size = 0;
-	
+
 	public void push(T data){
 
 		Node<T> newNode = new Node<T>();
@@ -26,7 +24,7 @@ public class Queue<T> {
 
 		size++;
 	}
-	
+
 	public T pop(){
 		if(tail == null){
 			return null;

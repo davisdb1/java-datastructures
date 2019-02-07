@@ -4,40 +4,34 @@ import com.cnc.datastructures.Node;
 
 /**
  * http://powerfield-software.com/?p=203
- * 
+ * <p>
  * Given a linked list, detect if the list is circular
  * If it is, find where the list becomes circualr
- * 
+ *
  * @author Evan Harris
  */
 public class CircularListDetection {
-    
-    
-    public static boolean detectCircular(Node head){
-        if(head == null){
+
+
+    public static boolean detectCircular(Node head) {
+        if (head == null) {
             return false;
         }
         Node fast = head.getNext();
         Node slow = head;
-        
-        while(fast != null && slow != null){
-            if(fast == slow){
-                return true;
-            }else{
-                slow = slow.getNext();
+
+        while (fast != slow && fast != null && slow != null) {
+            slow = slow.getNext();
+            fast = fast.getNext();
+            if (fast != null) {
                 fast = fast.getNext();
-                if(fast == null){
-                    return false;
-                }else{
-                    fast = fast.getNext();
-                }
             }
         }
-        return false;
+        return fast == slow;
     }
 
-    public static Node detectCircularAndGetInterception(Node head){
-        if(head == null){
+    public static Node detectCircularAndGetInterception(Node head) {
+        if (head == null) {
             return null;
         }
 
@@ -45,37 +39,39 @@ public class CircularListDetection {
         Node slow = head;
 
         Node meetingNode = null;
-        while(fast != null && fast.getNext() != null){
-            if(fast == slow){
+        while (fast != null && fast.getNext() != null) {
+            if (fast == slow) {
                 meetingNode = fast;
-            }else{
+            }
+            else {
                 slow = slow.getNext();
                 fast = fast.getNext();
-                if(fast == null){
+                if (fast == null) {
                     return null;
-                }else{
+                }
+                else {
                     fast = fast.getNext();
                 }
             }
         }
-        if(meetingNode == null) {
+        if (meetingNode == null) {
             return null;
         }
-        
+
         int circleLength = 1;
         fast = fast.getNext();
-        while(fast != slow){
+        while (fast != slow) {
             fast = fast.getNext();
             circleLength++;
         }
-        
+
         //now that we have the circlelength, reset the pointers
         //and then find the interception
         fast = slow = head;
-        for(int i = 0; i < circleLength; i++){
+        for (int i = 0; i < circleLength; i++) {
             fast = fast.getNext();
         }
-        while (slow != fast){
+        while (slow != fast) {
             slow = slow.getNext();
             fast = fast.getNext();
         }
