@@ -9,3 +9,9 @@ have had some thought put into them.
     * git clone
     * gradle clean build idea
     
+## Practice
+
+This branch is intended as a template to branch from and do your own work. The tests remain intact, but the data structure and algorithm implementations have been replaced with void or error code type return values.
+
+   * git checkout Skeleton
+   
