@@ -1,49 +1,45 @@
 package com.cnc.datastructures;
 
 public class Node<T> {
-    private T data;
-    private Node<T> next;  // or right
-    private Node<T> prev;  // or left
-
 
     public T getData() {
-        return data;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public void setData(T data) {
-        this.data = data;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public Node<T> getRight() {
-        return next;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public void setRight(Node<T> right) {
-        this.next = right;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public Node<T> getNext() {
-        return next;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public void setNext(Node<T> next) {
-        this.next = next;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public Node<T> getLeft() {
-        return prev;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public void setLeft(Node<T> left) {
-        this.prev = left;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public Node<T> getPrev() {
-        return prev;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public void setPrev(Node<T> prev) {
-        this.prev = prev;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
 }

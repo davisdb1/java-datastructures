@@ -2,7 +2,6 @@ package com.cnc.algorithms.strings;
 
 public class StringTruncation {
 
-
     /**
      * When you search for a web site in google, each page title is
      * restricted by length. At the same time, google is careful not
@@ -23,23 +22,7 @@ public class StringTruncation {
      * @return the truncated title
      */
     public static String getGoogleSeachTitle(String title, int length) {
-        if (length <= 0) {
-            throw new IllegalArgumentException("Length must be positive");
-        }
-        if (title == null || title.length() <= length) {
-            return title;
-        }
-        else {
-            char[] titleCharArray = title.toCharArray();
-            int indexToConcat = length;
-            for (int i = length; i >= 0; i--) {
-                if (titleCharArray[i] == ' ') {
-                    indexToConcat = i;
-                    break;
-                }
-            }
-            return title.substring(0, indexToConcat);
-        }
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 }
   

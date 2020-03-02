@@ -1,8 +1,5 @@
 package com.cnc.algorithms.strings;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * Things to think about:
  * <p>
@@ -14,19 +11,7 @@ import java.util.Map;
 public class NumberOfCharactersInString {
 
     public void printCharactersInString(String input) {
-        if (input != null && !input.isEmpty()) {
-            Map<Character, Integer> characterCount = new HashMap<>();
-            for (char inputChar : input.toCharArray()) {
-                if (characterCount.containsKey(inputChar)) {
-                    characterCount.put(inputChar, characterCount.get(inputChar) + 1);
-                }
-                else {
-                    characterCount.put(inputChar, 1);
-                }
-            }
-            for (Character uniqueChar : characterCount.keySet()) {
-                System.out.println(uniqueChar + ": " + characterCount.get(uniqueChar));
-            }
-        }
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
+	
 }

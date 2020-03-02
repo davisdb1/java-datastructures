@@ -1,10 +1,5 @@
 package com.cnc.algorithms.strings;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-
 /*
  * Given a string, find all the permutations of the string
  * Example:
@@ -39,25 +34,11 @@ import java.util.Optional;
 public class StringPermutations {
 
     public static void permutation(String str, Optional<List<String>> resultSet) {
-        permutation("", str, resultSet);
-    }
-
-    private static void permutation(String prefix, String str, Optional<List<String>> resultSet) {
-        int n = str.length();
-        if (n == 0) {
-            System.out.println(prefix);
-            resultSet.ifPresent( x -> x.add(prefix));
-        }
-        else {
-            for (int i = 0; i < n; i++)
-                permutation(prefix + str.charAt(i), str.substring(0, i) + str.substring(i + 1, n), resultSet);
-        }
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public List<String> getPermutations(String word) {
-        List<String> resultSet = new ArrayList<>();
-        permutation(word, Optional.of(resultSet));
-        return resultSet;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
 }

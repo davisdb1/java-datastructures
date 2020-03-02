@@ -4,9 +4,6 @@
  */
 package com.cnc.algorithms.strings;
 
-import java.util.HashSet;
-import java.util.Set;
-
 public class Palindrome {
 
     /**
@@ -19,21 +16,7 @@ public class Palindrome {
      * @return true if the string can be made into a palindrome, false if not.
      */
     public static boolean isPermutationAPalindrome(String input) {
-        if(input == null || input.length() < 2) {
-            return true;
-        }
-
-        Set<Character> unmatchedChars = new HashSet<>();
-
-        for (char character : input.toCharArray()) {
-            if (unmatchedChars.contains(character)) {
-                unmatchedChars.remove(character);
-            }
-            else {
-                unmatchedChars.add(character);
-            }
-        }
-
-        return unmatchedChars.size() <= 1;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
+	
 }

@@ -11,43 +11,8 @@ package com.cnc.algorithms;
  */
 public class ReversePositiveIntegers {
 
-
     public void reversePositiveIntegers(int[] input) {
-
-        if (input == null || input.length < 2) {
-            return;
-        }
-
-        int firstPositiveIndex = -1;
-        for (int i = 0; i < input.length; i++) {
-            //if at positive and index is unset
-            if (input[i] > 0 && firstPositiveIndex < 0) {
-                firstPositiveIndex = i;
-            }
-
-            //if at negative and positive index has been set
-            if (input[i] <= 0 && firstPositiveIndex >= 0) {
-                reverse(input, firstPositiveIndex, i - 1);
-                firstPositiveIndex = -1;
-            }
-
-            //edge case for when we are at the end
-            if (i == input.length - 1 && firstPositiveIndex >= 0) {
-                reverse(input, firstPositiveIndex, i);
-                firstPositiveIndex = -1;
-
-            }
-        }
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
-
-
-    private void reverse(int[] input, int startIndex, int endIndex) {
-        while (startIndex < endIndex) {
-            int tmp = input[startIndex];
-            input[startIndex] = input[endIndex];
-            input[endIndex] = tmp;
-            endIndex--;
-            startIndex++;
-        }
-    }
+	
 }

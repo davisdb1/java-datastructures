@@ -13,47 +13,16 @@ package com.cnc.algorithms;
  */
 public class LightBulbController {
 
-    private int[] bulbs;
-
-    private LightBulbController() {
-    }
-
     public static LightBulbController withNumberOfBulbs(int numberOfBulbs) {
-        if (numberOfBulbs <= 0) {
-            throw new IllegalArgumentException("Must have 0 or more bulbs");
-        }
-        LightBulbController lightBulbController = new LightBulbController();
-        lightBulbController.bulbs = new int[numberOfBulbs];
-        return lightBulbController;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public void toggle(int startingBulb, int endingBulb) {
-        checkBulbIndex(startingBulb);
-        checkBulbIndex(endingBulb);
-
-        bulbs[startingBulb] = 1;
-
-        if (endingBulb < bulbs.length) {
-            bulbs[endingBulb + 1] = -1;
-        }
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
 
     public boolean isOn(int bulbNumber) {
-        checkBulbIndex(bulbNumber);
-        int runningTotal = 0;
-        for (int i = 0; i <= bulbNumber; i++) {
-            runningTotal += bulbs[i];
-        }
-        return runningTotal % 2 == 1;
+        throw new UnsupportedOperationException("Not yet implemented.");
     }
-
-    private void checkBulbIndex(int index) {
-        if (index <= 0) {
-            throw new IllegalArgumentException("Bulb index cannot be negative");
-        }
-        else if (index >= bulbs.length) {
-            throw new IllegalArgumentException("Bulb index cannot greater that number of bulbs");
-        }
-    }
-
+	
 }
